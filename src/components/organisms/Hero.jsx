@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <>
       <section className="flex flex-col items-center gap-[-64px] ">
-        <div className="flex flex-col items-center gap-5 self-stretch h-4/5 relative">
+        <div className="flex flex-col items-center gap-5 self-stretch h-4/5 relative overflow-hidden">
           <ImageContainer dataImages={ImageHeroOne} />
           <ImageContainer dataImages={ImageHeroTwo} />
           <ImageContainer dataImages={ImageHeroThree} />
@@ -24,7 +24,7 @@ export function Hero() {
             <Image src={ICON} alt="icon hero" width={""} height={""} />
           </div>
         </div>
-        <div className=" flex justify-center w-3/5 items-center gap-12  flex-col absolute -bottom-[240px]">
+        <div className="flex justify-center items-center gap-12 flex-col w-4/5 md:w-3/5 relative -translate-y-20 md:-translate-y-36">
           <div className="flex flex-col gap-[14px] text-center">
             <Title level={1}>The Best Streaming Experience</Title>
             <Paragraph className="text-gray-600">
@@ -49,21 +49,25 @@ export function Hero() {
 
 export const ImageContainer = ({ dataImages }) => {
   return (
-    <>
-      <section className="flex items-start justify-between gap-5 flex-1 self-stretch  ">
+    <section className=" min-w-full ">
+      <div className="flex items-start justify-between  gap-5 md:flex-1 md:self-stretch   ">
         {dataImages.map((image, index) => (
-          <Image
-            className={` rounded-xl md:h-[180px] w-1/3 h-1/3 md:w-[180px] bg-cover bg-no-repeat bg-grey-60 bg-opacity-50 ${
-              index < 3 ? "block" : "hidden sm:block"
-            }`}
-            src={image}
-            key={index}
-            alt={`Hero image ${index + 1}`}
-            width={``}
-            height={``}
-          />
+          <div className="rounded-xl w-[130px] h-[180px] md:w-[180px] md:h-[210px]  bg-cover bg-no-repeat bg-grey-60 bg-opacity-50">
+            <Image
+              className="rounded-xl"
+              src={image}
+              key={index}
+              alt={`Hero image ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                backgroundSize: "cover",
+              }}
+              loading="lazy"
+            />
+          </div>
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
