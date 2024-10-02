@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 
 import ICON from "../../assets/icons/Icon.svg";
+import PLAY from "../../assets/icons/play.svg";
 import { Paragraph, Title } from "../atoms/Typography";
 
 export function Hero() {
@@ -38,10 +39,10 @@ export function Hero() {
           </div>
 
           <button className="flex py-[18px] px-[24px] gap-4 rounded-lg bg-red-45">
-            Start Watching Now
+            <Image src={PLAY} alt="button play" />
+            <span>Start Watching Now</span>
           </button>
         </div>
-        <hr className=" pb-64 " />
       </section>
     </>
   );
