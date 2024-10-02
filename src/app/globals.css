@@ -14,3 +14,20 @@
 body {
   font-family: "Manrope", sans-serif;
 }
+
+.fade-out-bottom {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, #141414 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.fade-out-top {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(180deg, #141414 0%, rgba(20, 20, 20, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
