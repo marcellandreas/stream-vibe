@@ -1,9 +1,12 @@
-import { Layout } from "@/router";
+import { MainLayout } from "@/router";
 
 export default function Home() {
   return (
     <>
-      <Layout />
+      <MainLayout>
+        <h1>marcell</h1>
+        <h1>marcell</h1>
+      </MainLayout>
     </>
   );
 }
