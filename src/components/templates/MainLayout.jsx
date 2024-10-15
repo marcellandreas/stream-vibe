@@ -1,12 +1,7 @@
-import { Navbar } from "@/router";
-import { Footer } from "./Footer";
-
 export function MainLayout({ children }) {
   return (
     <>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <main className="min-h-[80vh] flex flex-col gap-40 ">{children}</main>
     </>
   );
 }

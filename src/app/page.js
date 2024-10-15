@@ -1,9 +1,10 @@
-import { Layout } from "@/router";
+import { Category, Hero } from "@/router";
 
 export default function Home() {
   return (
-    <>
-      <Layout />
-    </>
+    <section>
+      <Hero />
+      <Category />
+    </section>
   );
 }
