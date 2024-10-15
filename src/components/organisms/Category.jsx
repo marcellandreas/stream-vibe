@@ -8,7 +8,8 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -30,8 +31,10 @@ function SamplePrevArrow(props) {
     />
   );
 }
+
 export function Category() {
   const sliderRef = useRef(null);
+  const [activeDot, setActiveDot] = useState(0);
   const category = [
     "Action",
     "Adventure",
@@ -55,8 +58,8 @@ export function Category() {
     "Noir",
   ];
 
-  var settings = {
-    dots: true,
+  const settings = {
+    dots: false, // Nonaktifkan dots bawaan
     infinite: false,
     speed: 500,
     slidesToShow: 5,
@@ -64,6 +67,7 @@ export function Category() {
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    beforeChange: (current, next) => setActiveDot(next / 3), // Update dot aktif
     responsive: [
       {
         breakpoint: 1024,
@@ -71,7 +75,7 @@ export function Category() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -99,10 +103,15 @@ export function Category() {
   const handlePrev = () => {
     sliderRef.current.slickPrev();
   };
+
+  const handleDotClick = (index) => {
+    sliderRef.current.slickGoTo(index * 3);
+  };
+
   return (
     <>
-      <section className=" container mx-auto flex flex-col gap-[60px] relative">
-        <div className="flex items-center justify-center  gap-20 self-stretch">
+      <section className="container mx-auto flex flex-col gap-[60px] relative">
+        <div className="flex items-center justify-center gap-20 self-stretch">
           <div className="flex flex-col gap-[10px] flex-1">
             <Title level={2}>Explore our wide variety of categories</Title>
             <Paragraph>
@@ -117,6 +126,25 @@ export function Category() {
             >
               <FaLongArrowAltLeft size={36} />
             </button>
+
+            {/* Custom Dots */}
+            <div className="flex items-center gap-2">
+              {[...Array(Math.min(Math.ceil(category.length / 3))).keys()].map(
+                (index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleDotClick(index)}
+                    style={{
+                      width: "12px",
+                      height: "2px",
+                      backgroundColor: activeDot === index ? "red" : "gray",
+                      cursor: "pointer",
+                    }}
+                  />
+                )
+              )}
+            </div>
+
             <button
               className="flex p-[10px] gap-[10px] rounded-md border border-black-12 bg-black-10"
               onClick={handleNext}
@@ -126,7 +154,7 @@ export function Category() {
           </div>
         </div>
 
-        <div className="">
+        <div>
           <Slider ref={sliderRef} {...settings}>
             {category.map((category, index) => (
               <CardCategory key={index}>
@@ -142,7 +170,7 @@ export function Category() {
 
 export const CardCategory = ({ children }) => {
   return (
-    <section className="flex w-[234px] p-6 flex-col flex-1 rounded-xl border border-black-15  bg-black-10">
+    <section className="flex w-[234px] p-6 flex-col flex-1 rounded-xl border border-black-15 bg-black-10">
       <div className="h-[210px] w-full grid grid-cols-2 gap-1 relative">
         {ImageHeroOne.slice(0, 4).map((image, index) => (
           <div
