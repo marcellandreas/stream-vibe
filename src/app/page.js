@@ -1,9 +1,10 @@
-import { Hero } from "@/router";
+import { Category, Hero } from "@/router";
 
 export default function Home() {
   return (
     <section>
       <Hero />
+      <Category />
     </section>
   );
 }
