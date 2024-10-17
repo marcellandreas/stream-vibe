@@ -93,3 +93,55 @@ export const ImageHeroFour = [
 //  export const ImageHeroTwo = importImages("hero-2");
 //  export const ImageHeroThree = importImages("hero-3");
 //  export const ImageHeroFour = importImages("hero-4");
+
+import smartPhones from "../images/device/smartphones.png";
+import tablet from "../images/device/tablet.png";
+import smartTv from "../images/device/smart-tv.png";
+import laptops from "../images/device/laptops.png";
+import gamingConsoles from "../images/device/gaming-consoles.png";
+import vrHeadsets from "../images/device/vr-headsets.png";
+
+export const Devices_data = [
+  {
+    id: 1,
+    device: "SmartPhones",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: smartPhones,
+  },
+  {
+    id: 2,
+    device: "Tablet",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: tablet,
+  },
+  {
+    id: 3,
+    device: "Smart TV",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: smartTv,
+  },
+  {
+    id: 4,
+    device: "Laptops",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: laptops,
+  },
+  {
+    id: 5,
+    device: "Gaming Consoles",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: gamingConsoles,
+  },
+  {
+    id: 1,
+    device: "VR Headsets",
+    description:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+    image: vrHeadsets,
+  },
+];
