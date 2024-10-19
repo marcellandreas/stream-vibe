@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <section>
       <Hero />
-      {/* <Category /> */}
+      <Category />
       <Devices />
       <Asked />
     </section>
