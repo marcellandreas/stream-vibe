@@ -1,14 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Paragraph, TextButton, Title } from "../atoms/Typography";
 
 export function Asked() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [displayQuestions, setDisplayQuestions] = useState([]);
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+  // Daftar pertanyaan dan jawaban
   const questions = [
     {
       question: "What is StreamVibe?",
@@ -52,37 +56,55 @@ export function Asked() {
     },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobileScreen = window.innerWidth <= 768;
+      setIsMobile(isMobileScreen);
+
+      if (isMobileScreen) {
+        setDisplayQuestions(questions.slice(0, 6));
+      } else {
+        setDisplayQuestions(questions);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className=" container pb-10 mx-auto flex  flex-col gap-20">
+    <div className="container  pb-10 mx-auto flex flex-col px-5 md:px-0 gap-20">
       <div className="flex flex-col md:flex-row justify-between items-end">
-        <div className="flex flex-col gap-[10px] ">
+        <div className="flex flex-col gap-[10px]">
           <Title level={3}>Frequently Asked Questions</Title>
           <Paragraph>
             Got questions? We've got answers! Check out our FAQ section to find
             answers to the most common questions about StreamVibe.
           </Paragraph>
         </div>
-        <button className=" px-6 py-4 bg-red-45 rounded-lg ">
+        <button className="px-6 py-4 bg-red-45 rounded-lg">
           Ask a Question
         </button>
       </div>
 
-      <div className="gap-4 px-4 md:px-0 py-3 flex flex-wrap md:max-h-[470px] flex-col overflow-hidden ">
-        {questions.map((item, index) => (
-          <div key={index} className="md:w-1/2 min-h-[80px] ">
-            <div className="flex justify-center gap-4 ">
-              <button className=" bg-black-12 border border-black-15 h-16 w-16 rounded-xl">
+      <div className="gap-4  px-4 md:px-0 py-3 flex flex-wrap md:max-h-[470px] flex-col overflow-hidden">
+        {displayQuestions.map((item, index) => (
+          <div key={index} className="md:w-1/2 min-h-[80px]">
+            <div className="flex justify-center gap-4">
+              <button className="bg-black-12 border border-black-15 h-16 w-16 rounded-xl">
                 {index + 1}
               </button>
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full text-left py-4 px-2 flex justify-between items-center   transition-colors duration-200"
+                className="w-full text-left py-4 px-2 flex justify-between items-center transition-colors duration-200"
               >
                 <span className="font-semibold text-lg">{item.question}</span>
               </button>
               <div
                 onClick={() => handleToggle(index)}
-                className=" cursor-pointer text-d-h4 h-16 w-16  text-white grid place-content-center"
+                className="cursor-pointer text-d-h4 h-16 w-16 text-white grid place-content-center"
               >
                 {activeIndex === index ? "-" : "+"}
               </div>
