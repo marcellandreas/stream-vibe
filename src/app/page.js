@@ -1,4 +1,4 @@
-import { Asked, Category, Devices, Hero } from "@/router";
+import { Asked, Category, Devices, Hero, Plan } from "@/router";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Category />
       <Devices />
       <Asked />
+      <Plan />
     </section>
   );
 }

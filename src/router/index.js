@@ -9,5 +9,6 @@ export { Navbar } from "@/components/organisms/Navbar";
 export { Category } from "@/components/organisms/Category";
 export { Devices } from "@/components/organisms/Devices";
 export { Asked } from "@/components/organisms/Asked";
+export { Plan } from "@/components/organisms/Plan";
 // components -> templates
 export { MainLayout } from "@/components/templates/MainLayout";
