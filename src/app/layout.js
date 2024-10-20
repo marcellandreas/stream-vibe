@@ -1,6 +1,5 @@
 import { Footer, MainLayout, Navbar } from "@/router";
 import "./globals.css";
-
 export const metadata = {
   title: "Stream Vibe",
   description: "Creating website streaming movie",

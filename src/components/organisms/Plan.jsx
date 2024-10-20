@@ -31,11 +31,27 @@ export function Plan() {
     },
     {
       id: 4,
-      title: "Basic Plan 2",
+      title: "Basic Yearly Plan",
       description:
-        "Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.",
+        "Get the same features as the Basic Plan, but with a yearly billing cycle at a discounted rate.",
       type: "year",
-      price: 9.99,
+      price: 99.99,
+    },
+    {
+      id: 5,
+      title: "Standard Yearly Plan",
+      description:
+        "Enjoy the Standard Plan features for a full year, including access to exclusive content, at a lower annual price.",
+      type: "year",
+      price: 99.99,
+    },
+    {
+      id: 6,
+      title: "Premium Yearly Plan",
+      description:
+        "Unlock all Premium Plan benefits for an entire year, including offline viewing and access to all new releases.",
+      type: "year",
+      price: 99.99,
     },
   ];
   const [tabActive, setTabActive] = useState(false);

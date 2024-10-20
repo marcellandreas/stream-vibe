@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Paragraph, Title } from "@/components/atoms/Typography";
 
 export function CardPlan({ title, description, type, price }) {
@@ -22,3 +23,10 @@ export function CardPlan({ title, description, type, price }) {
     </div>
   );
 }
+
+CardPlan.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
