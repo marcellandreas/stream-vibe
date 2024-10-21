@@ -9,6 +9,7 @@ import Image from "next/image";
 import ICON from "../../assets/icons/Icon.svg";
 import PLAY from "../../assets/icons/play.svg";
 import { Paragraph, Title } from "../atoms/Typography";
+import { ImageContainer } from "../molecules/ImageContainerHero";
 
 export function Hero() {
   return (
@@ -47,28 +48,3 @@ export function Hero() {
     </>
   );
 }
-
-export const ImageContainer = ({ dataImages }) => {
-  return (
-    <section className=" min-w-full ">
-      <div className="flex items-start justify-between  gap-5 md:flex-1 md:self-stretch   ">
-        {dataImages.map((image, index) => (
-          <div className="rounded-xl w-[130px] h-[180px] md:w-[180px] md:h-[210px]  bg-cover bg-no-repeat bg-grey-60 bg-opacity-50">
-            <Image
-              className="rounded-xl"
-              src={image}
-              key={index}
-              alt={`Hero image ${index + 1}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                backgroundSize: "cover",
-              }}
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
