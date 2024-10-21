@@ -55,7 +55,6 @@ export function Plan() {
     },
   ];
   const [tabActive, setTabActive] = useState(false);
-
   const [dataPlan, setDataPlan] = useState([]);
 
   useEffect(() => {
@@ -70,8 +69,8 @@ export function Plan() {
 
   return (
     <>
-      <section className="container mx-auto flex flex-col gap-[60px] relative py-40">
-        <div className="flex flex-col md:flex-row justify-between items-end">
+      <section className="container mx-auto flex flex-col gap-[60px] px-5 md:px-0 relative py-40">
+        <div className="flex flex-col gap-4 md:flex-row justify-between items-end">
           <div className="flex flex-col gap-[10px]">
             <Title level={3}>Choose the plan that's right for you</Title>
             <Paragraph>
@@ -100,7 +99,7 @@ export function Plan() {
           </div>
         </div>
         {!tabActive ? (
-          <section className="flex gap-5 flex-w min-h-[20vh]">
+          <section className="flex flex-col md:flex-row flex-wrap items-center gap-5  min-h-[20vh]">
             {dataPlan.map((data) => (
               <CardPlan
                 key={data.id}
@@ -112,7 +111,7 @@ export function Plan() {
             ))}
           </section>
         ) : (
-          <section className="flex gap-5 flex-w min-h-[20vh]">
+          <section className="flex flex-col md:flex-row flex-warp items-center gap-5 min-h-[20vh]">
             {dataPlan.map((data) => (
               <CardPlan
                 key={data.id}
