@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Paragraph, TextButton, Title } from "../atoms/Typography";
+import { Paragraph, Title } from "../atoms/Typography";
+import { AccordionItem } from "@/router";
 
 export function Asked() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -91,31 +92,14 @@ export function Asked() {
 
       <div className="gap-4  px-4 md:px-0 py-3 flex flex-wrap md:max-h-[470px] flex-col overflow-hidden">
         {displayQuestions.map((item, index) => (
-          <div key={index} className="md:w-1/2 min-h-[80px]">
-            <div className="flex justify-center gap-4">
-              <button className="bg-black-12 border border-black-15 h-16 w-16 rounded-xl">
-                {index + 1}
-              </button>
-              <button
-                onClick={() => handleToggle(index)}
-                className="w-full text-left py-4 px-2 flex justify-between items-center transition-colors duration-200"
-              >
-                <span className="font-semibold text-lg">{item.question}</span>
-              </button>
-              <div
-                onClick={() => handleToggle(index)}
-                className="cursor-pointer text-d-h4 h-16 w-16 text-white grid place-content-center"
-              >
-                {activeIndex === index ? "-" : "+"}
-              </div>
-            </div>
-            {activeIndex === index && (
-              <div className="pl-20 py-6 text-gray-700">
-                <p>{item.answer}</p>
-              </div>
-            )}
-            <div className="line" />
-          </div>
+          <AccordionItem
+            key={index}
+            index={index}
+            question={item.question}
+            answer={item.answer}
+            activeIndex={activeIndex}
+            handleToggle={handleToggle}
+          />
         ))}
       </div>
     </div>

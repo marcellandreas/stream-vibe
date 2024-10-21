@@ -1,7 +1,8 @@
 // componnets -> atoms
 
-// componnets -> molecules
+export { AccordionItem } from "@/components/molecules/Accordion/AccordionItem";
 
+// componnets -> molecules
 // componnets -> organisms
 export { Footer } from "@/components/organisms/Footer";
 export { Hero } from "@/components/organisms/Hero";
