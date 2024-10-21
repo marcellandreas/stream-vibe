@@ -94,12 +94,12 @@ export const ImageHeroFour = [
 //  export const ImageHeroThree = importImages("hero-3");
 //  export const ImageHeroFour = importImages("hero-4");
 
-import smartPhones from "../images/device/smartphones.png";
-import tablet from "../images/device/tablet.png";
-import smartTv from "../images/device/smart-tv.png";
-import laptops from "../images/device/laptops.png";
-import gamingConsoles from "../images/device/gaming-consoles.png";
-import vrHeadsets from "../images/device/vr-headsets.png";
+import smartPhones from "../images/device/smartphones.svg";
+import tablet from "../images/device/tablet.svg";
+import smartTv from "../images/device/smart-tv.svg";
+import laptops from "../images/device/laptops.svg";
+import gamingConsoles from "../images/device/gaming-consoles.svg";
+import vrHeadsets from "../images/device/vr-headsets.svg";
 
 export const Devices_data = [
   {
