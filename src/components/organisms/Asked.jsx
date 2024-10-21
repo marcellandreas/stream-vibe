@@ -76,7 +76,7 @@ export function Asked() {
   }, []);
 
   return (
-    <div className="container  pb-10 mx-auto flex flex-col px-5 md:px-0 gap-20">
+    <div className="container  pb-10 mx-auto flex flex-col px-5  gap-20">
       <div className="flex flex-col md:flex-row justify-between items-end">
         <div className="flex flex-col gap-[10px]">
           <Title level={3}>Frequently Asked Questions</Title>
