@@ -71,7 +71,7 @@ export function Plan() {
     <>
       <section className="container mx-auto flex flex-col gap-[60px] px-5 md:px-0 relative py-40">
         <div className="flex flex-col gap-4 md:flex-row justify-between items-end">
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[10px] md:w-4/5">
             <Title level={3}>Choose the plan that's right for you</Title>
             <Paragraph>
               Join StreamVibe and select from our flexible subscription options
