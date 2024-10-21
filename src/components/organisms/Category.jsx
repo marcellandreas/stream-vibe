@@ -110,9 +110,9 @@ export function Category() {
 
   return (
     <>
-      <section className="container mx-auto flex flex-col gap-[60px] relative">
-        <div className="flex items-center justify-center gap-20 self-stretch">
-          <div className="flex flex-col gap-[10px] flex-1">
+      <section className="container px-5 mx-auto flex flex-col gap-[60px] relative">
+        <div className="flex flex-col md:flex-row justify-between items-end">
+          <div className="flex flex-col gap-[10px]">
             <Title level={2}>Explore our wide variety of categories</Title>
             <Paragraph>
               Whether you're looking for a comedy to make you laugh, a drama to
@@ -153,8 +153,7 @@ export function Category() {
             </button>
           </div>
         </div>
-
-        <div>
+        <div className="">
           <Slider ref={sliderRef} {...settings}>
             {category.map((category, index) => (
               <CardCategory key={index}>
@@ -170,7 +169,7 @@ export function Category() {
 
 export const CardCategory = ({ children }) => {
   return (
-    <section className="flex w-[234px] p-6 flex-col flex-1 rounded-xl border border-black-15 bg-black-10">
+    <section className="flex min-w-[234px] p-6 flex-col flex-1 rounded-xl border border-black-15 bg-black-10 mx-2">
       <div className="h-[210px] w-full grid grid-cols-2 gap-1 relative">
         {ImageHeroOne.slice(0, 4).map((image, index) => (
           <div
